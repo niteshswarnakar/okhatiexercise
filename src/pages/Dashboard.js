@@ -10,14 +10,14 @@ function Dashboard() {
         <div className="section-left">
           <div className="section-intro">
             <p className="section-title">Hello, {savedEmail}</p>
-            <h2 className="section-main">You're welcome</h2>
+            <h2 className="section-main">You're Authenticated</h2>
             <p className="section-secondary">
               We care for <span className="section-skill">Your privacy</span>
             </p>
           </div>
           <div className="section-button">
-            <span className="b1">Authen</span>
-            <span className="b2">tication</span>
+            <span className="b1">Dash</span>
+            <span className="b2">Board</span>
           </div>
         </div>
         <div className="section-right">

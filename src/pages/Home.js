@@ -16,8 +16,8 @@ function Home() {
             </p>
           </div>
           <div className="section-button">
-            <span className="b1">Authen</span>
-            <span className="b2">tication</span>
+            <span className="b1">Home</span>
+            <span className="b2">page</span>
           </div>
         </div>
         <div className="section-right">

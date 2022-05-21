@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import AlertComponent from "./components/AlertComponent";
+import PrivateRoute from "./pages/PrivateRoute";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -39,7 +40,14 @@ function App() {
         <AlertComponent alert={alert} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
           <Route path="/test" element={<MyButton />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

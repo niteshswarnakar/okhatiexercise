@@ -24,9 +24,11 @@ function Header() {
         <Link className="nav__link n1" to="/">
           Home
         </Link>
-        <Link className="nav__link n2" to="/dashboard">
-          Dashboard
-        </Link>
+        {isLoggedIn && (
+          <Link className="nav__link n2" to="/dashboard">
+            Dashboard
+          </Link>
+        )}
         {!isLoggedIn ? (
           <Link style={{ textDecoration: "none" }} className="n2" to="/login">
             <Button variant="contained" color="secondary">
