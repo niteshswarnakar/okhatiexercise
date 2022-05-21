@@ -12,7 +12,8 @@ const LoginPage = () => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const [isLoggedIn, refreshLogin] = useContext(UserContext);
+  const [isLoggedIn, refreshLogin, savedEmail, showAlert] =
+    useContext(UserContext);
 
   useEffect(() => {
     setFormIsValid(emailIsValid && passwordIsValid);
@@ -26,8 +27,9 @@ const LoginPage = () => {
       refreshLogin(true);
       localStorage.setItem("isLoggedIn", "true");
       navigate("/dashboard");
+      showAlert("Successfully logged in", "success");
     } else {
-      alert("Account didn't match");
+      showAlert("Account didn't match", "error");
       setEnteredPassword("");
     }
   };
@@ -62,7 +64,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div class="login-form">
+    <div className="login-form">
       <div className="login-title">
         <h2>Login</h2>
       </div>

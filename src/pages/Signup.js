@@ -15,7 +15,8 @@ const Signup = () => {
   const [passwordMatch, setPasswordMatch] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showPassword1, setShowPassword1] = useState(false);
-  const [isLoggedIn, refreshLogin] = useContext(UserContext);
+  const [isLoggedIn, refreshLogin, savedEmail, showAlert] =
+    useContext(UserContext);
 
   const pwd1 = useRef();
 
@@ -33,8 +34,10 @@ const Signup = () => {
       // localStorage.setItem("isLoggedIn", "true");
       // refreshLogin(true);
       navigate("/login");
+      showAlert("Successfully signed up", "success");
     } else {
-      alert("password didn't match");
+      // alert("password didn't match");
+      showAlert("password didn't match", "error");
       setEnteredPassword("");
       setEnteredPassword1("");
       setPasswordIsValid(false);
@@ -81,7 +84,7 @@ const Signup = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!passwordIsValid) {
-      alert("password is not valid");
+      showAlert("password is not valid", "warning");
       setEnteredPassword("");
       setEnteredPassword1("");
     } else {
@@ -133,7 +136,7 @@ const Signup = () => {
               onChange={passwordMatchHandler}
             />
             <Checkbox
-              id="showpassword"
+              id="showpassword1"
               onClick={() => setShowPassword1((prev) => !prev)}
             />
           </div>
